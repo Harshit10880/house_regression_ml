@@ -106,16 +106,16 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-st.write("App started")
-
 with open("model.pkl", "rb") as file:
     model = pickle.load(file)
 
-st.write("Model loaded successfully")
+st.write("Model loaded")
 
-st.write("Model type:", type(model))
+st.write("Intercept:", model.intercept_)
+st.write("Coefficients:", model.coef_)
 
-if hasattr(model, "feature_names_in_"):
-    st.write("Expected features:", model.feature_names_in_)
+test_input = [[1, 1, 1000, 3, 2, 1, 1]]
 
-st.success("Everything is working up to this point.")
+prediction = model.predict(test_input)
+
+st.write("Prediction:", prediction)
