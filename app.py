@@ -3,8 +3,15 @@ import pickle
 import pandas as pd
 
 # Load trained model
+# with open("model.pkl", "rb") as file:
+#     model = pickle.load(file)
+
+st.write("App started")
+
 with open("model.pkl", "rb") as file:
     model = pickle.load(file)
+
+st.write("Model loaded successfully")
 
 # App title
 st.title("🏠 House Price Prediction")
